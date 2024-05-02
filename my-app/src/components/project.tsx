@@ -28,7 +28,7 @@ export default function Project({
     ref={ref} 
     style={{
         scale: scaleProgress,
-        opacity: scrollYProgress,
+        opacity: opacityProgress,
     }}
     className="group mb-3 sm:mb-8 last:mb-0"
     >

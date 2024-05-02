@@ -37,29 +37,21 @@ export const links = [
 
 export const experiencesData = [
   {
-    title: "Graduated bootcamp",
-    location: "Miami, FL",
+    title: "Graduated Hacktiv8 Bootcamp",
+    location: "Jakarta, Indonesia",
     description:
-      "I graduated after 6 months of studying. I immediately found a job as a front-end developer.",
+      "I have learned about full-stack web and mobile development. I also learned about software engineering principles and best practices.",
     icon: React.createElement(LuGraduationCap),
-    date: "2019",
+    date: "2024",
   },
   {
-    title: "Front-End Developer",
-    location: "Orlando, FL",
+    title: "Product Operations Analyst at Aspire Financial Technologies",
+    location: "Jakarta, Indonesia",
     description:
-      "I worked as a front-end developer for 2 years in 1 job and 1 year in another job. I also upskilled to the full stack.",
+      "I created automation tools to improve the efficiency of the operations team. I also worked on data analysis and reporting to help the product team make data-driven decisions.",
     icon: React.createElement(CgWorkAlt),
-    date: "2019 - 2021",
-  },
-  {
-    title: "Full-Stack Developer",
-    location: "Houston, TX",
-    description:
-      "I'm now a full-stack developer working as a freelancer. My stack includes React, Next.js, TypeScript, Tailwind, Prisma and MongoDB. I'm open to full-time opportunities.",
-    icon: React.createElement(FaReact),
-    date: "2021 - present",
-  },
+    date: "2021 - 2023",
+  }
 ] as const;
 
 export const projectsData = [
@@ -106,6 +98,7 @@ export const skillsData = [
   "JavaScript",
   "TypeScript",
   "React",
+  "Vite.js",
   "Next.js",
   "Node.js",
   "Git",
@@ -115,6 +108,7 @@ export const skillsData = [
   "GraphQL",
   "Apollo",
   "Express",
+  "Sequelize",
   "PostgreSQL",
   "MySQL",
   "Framer Motion",

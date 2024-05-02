@@ -27,7 +27,7 @@ export default function About() {
         id="about"
         
         className="mb-28 max-w-[45rem] text-center leading-8 sm:mb-40 scroll-mt-28">
-            <SectionHeading heading="About me"/>
+            <SectionHeading heading="About Me"/>
             <p className="mb-3">
             After graduating with a degree in{" "}
         <span className="font-medium">Business Administration</span>, I decided to pursue my
