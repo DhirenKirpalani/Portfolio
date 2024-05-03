@@ -37,11 +37,11 @@ export default function Intro() {
                         <Image
                             src={ProfileImage}
                             alt="Profile image"
-                            className="h-24 w-24 rounded-full object-cover 
-                    border-[0.35rem] border-white shadow-xl"
+                            className="h-48 w-48 rounded-full object-cover 
+                    border-[0.35rem] border-white dark:border-black shadow-xl"
                         />
                     </motion.div>
-                    <motion.span className="absolute bottom-0 right-0 text-4xl"
+                    <motion.span className="absolute bottom-5 right-0 text-5xl"
                         initial={{ opacity: 0, scale: 0 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ type: "spring", stiffness: 125, delay: 0.1, duration: 0.7 }}
@@ -82,7 +82,7 @@ export default function Intro() {
                 href="/CV - Dhiren Kirpalani.pdf"
                 download
                 className="group bg-white px-7 py-3 flex items-center gap-2 rounded-full
-                outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer borderBlack">
+                outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10">
                     Download CV <HiDownload className="group-hover:translate-y-1 transition opacity-60"/>
                 </a>
 
@@ -90,7 +90,7 @@ export default function Intro() {
                 href="https://www.linkedin.com/in/dhiren-kirpalani-b2a572132/"
                 target="_blank"
                 className="bg-white p-4 text-gray-700 flex items-center gap-2 text-[1.35rem] rounded-full
-                focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950 active:scale-105 transition cursor-pointer borderBlack">
+                focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950 active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60">
                     <BsLinkedin />
                 </a>
                 
@@ -98,7 +98,7 @@ export default function Intro() {
                 href="https://github.com/DhirenKirpalani"
                 target="_blank"
                 className="bg-white p-4 text-gray-700 flex items-center gap-2 text-[1.35rem] rounded-full
-                focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950 active:scale-105 transition cursor-pointer borderBlack">
+                focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950 active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60">
                     <FaGithubSquare />
                 </a>
             </motion.div>
