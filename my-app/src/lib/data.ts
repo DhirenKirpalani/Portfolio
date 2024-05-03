@@ -1,7 +1,7 @@
 import React from "react";
 import { CgWorkAlt } from "react-icons/cg";
 import { LuGraduationCap } from "react-icons/lu";
-import tictactoe from "@/assets/Tic-Tac-Toe.png";
+import tictactoe from "@/assets/tic-tac-toe.png";
 import restaurant from "@/assets/restaurant.jpg";
 import socialmedia from "@/assets/socialmedia.jpg";
 import ecommerce from "@/assets/ecommerce.png";
