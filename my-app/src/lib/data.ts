@@ -1,10 +1,9 @@
 import React from "react";
 import { CgWorkAlt } from "react-icons/cg";
-import { FaReact } from "react-icons/fa";
 import { LuGraduationCap } from "react-icons/lu";
 import tictactoe from "@/assets/Tic-Tac-Toe.png";
 import restaurant from "@/assets/restaurant.jpg";
-import socialmedia from "@/assets/socialmedia.png";
+import socialmedia from "@/assets/socialmedia.jpg";
 import ecommerce from "@/assets/ecommerce.png";
 import fitness from "@/assets/fitness.png";
 
@@ -45,7 +44,7 @@ export const experiencesData = [
     date: "2024",
   },
   {
-    title: "Product Operations Analyst at Aspire Financial Technologies",
+    title: "Product Operations Analyst - Aspire Financial Technologies",
     location: "Jakarta, Indonesia",
     description:
       "I created automation tools to improve the efficiency of the operations team. I also worked on data analysis and reporting to help the product team make data-driven decisions.",
@@ -111,5 +110,6 @@ export const skillsData = [
   "Sequelize",
   "PostgreSQL",
   "MySQL",
+  "Socket.io",
   "Framer Motion",
 ] as const;

@@ -15,10 +15,10 @@ const fadeInAnimationVariants = {
         opacity: 1,
         y: 0,
         transition: {
-           delay: 0.05 * index
+            delay: 0.05 * index
         }
     })
-    
+
 }
 
 export default function Skills() {
@@ -29,17 +29,17 @@ export default function Skills() {
             <ul className="flex flex-wrap justify-center gap-2 text-lg text-gray-800">
                 {
                     skillsData.map((skill, index) => (
-                        <motion.li className="bg-white borderBlack rounded-xl px-5 py-3 dark:bg-white/10 dark:text-white/80" 
-                        key={index}
-                        variants={fadeInAnimationVariants}
-                        initial="initial"
-                        whileInView="animate"
-                        viewport = {
-                            {
-                                once: true
+                        <motion.li className="bg-white borderBlack rounded-xl px-5 py-3 dark:bg-white/10 dark:text-white/80"
+                            key={index}
+                            variants={fadeInAnimationVariants}
+                            initial="initial"
+                            whileInView="animate"
+                            viewport={
+                                {
+                                    once: true
+                                }
                             }
-                        }
-                        custom={index}
+                            custom={index}
                         >
                             {/* <h3>{skill.title}</h3>
                             <p>{skill.description}</p>
@@ -51,4 +51,4 @@ export default function Skills() {
             </ul>
         </section>
     );
-    }
+}
