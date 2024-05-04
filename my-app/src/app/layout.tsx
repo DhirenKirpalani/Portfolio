@@ -20,7 +20,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  
   return (
     <html lang="en" className="!scroll-smooth">
       <head>
@@ -40,13 +39,13 @@ export default function RootLayout({
         sm:w-[68.75rem] md:left-[-33rem] lg:left-[-28rem] xl:left-[-15rem] 2xl:left-[-5rem] dark:bg-[#676394]"></div>
 
         <ThemeContextProvider>
-        <ActiveSectionContextProvider>
-          <Header />
-          {children}
-          <Footer />
-          <Toaster position="top-right"/>
-          <Theme />
-        </ActiveSectionContextProvider>
+          <ActiveSectionContextProvider>
+            <Header />
+            {children}
+            <Footer />
+            <Toaster position="top-right" />
+            <Theme />
+          </ActiveSectionContextProvider>
         </ThemeContextProvider>
       </body>
     </html>
