@@ -6,6 +6,7 @@ import restaurant from "@/assets/restaurant.jpg";
 import socialmedia from "@/assets/socialmedia.jpg";
 import ecommerce from "@/assets/ecommerce.png";
 import fitness from "@/assets/fitness.png";
+import facelandmarkdetection from "@/assets/facelandmarkdetection.png";
 
 export const links = [
   {
@@ -89,6 +90,13 @@ export const projectsData = [
     tags: ["Express.js", "React Native", "Expo", "MongoDB", "Jest", "AWS"],
     imageUrl: fitness,
   },
+  {
+    title: "Face Landmark Detection App",
+    description:
+      "A web based application to detect facial landmarks using TensorFlow.js.",
+    tags: ["React", "Vite.js", "TensorFlow.js"],
+    imageUrl: facelandmarkdetection,
+  },
 ] as const;
 
 export const skillsData = [
@@ -112,4 +120,7 @@ export const skillsData = [
   "MySQL",
   "Socket.io",
   "Framer Motion",
+  "Jest",
+  "AWS",
+  "TensorFlow.js"
 ] as const;
