@@ -7,6 +7,7 @@ import socialmedia from "@/assets/socialmedia.jpg";
 import ecommerce from "@/assets/ecommerce.png";
 import fitness from "@/assets/fitness.png";
 import facelandmarkdetection from "@/assets/facelandmarkdetection.png";
+import weather from "@/assets/weather.png";
 
 export const links = [
   {
@@ -96,6 +97,13 @@ export const projectsData = [
       "A web based application to detect facial landmarks using TensorFlow.js.",
     tags: ["React", "Vite.js", "TensorFlow.js"],
     imageUrl: facelandmarkdetection,
+  },
+  {
+    title: "Weather App",
+    description:
+      "A web based application to display real-time weather updates.",
+    tags: ["React", "Next.js", "Tailwind", "OpenWeatherMap API"],
+    imageUrl: weather,
   },
 ] as const;
 
