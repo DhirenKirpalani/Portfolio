@@ -8,6 +8,7 @@ import ecommerce from "@/assets/ecommerce.png";
 import fitness from "@/assets/fitness.png";
 import facelandmarkdetection from "@/assets/facelandmarkdetection.png";
 import weather from "@/assets/weather.png";
+import objectdetection from "@/assets/objectdetection.png";
 
 export const links = [
   {
@@ -104,6 +105,13 @@ export const projectsData = [
       "A web based application to display real-time weather updates.",
     tags: ["React", "Next.js", "Tailwind", "OpenWeatherMap API"],
     imageUrl: weather,
+  },
+  {
+    title: "Real-Time Object Detection App",
+    description:
+      "A web based application to detect objects in real-time using TensorFlow.js.",
+    tags: ["React", "Next.js", "COCO-SSD", "TensorFlow.js", "Tailwind"],
+    imageUrl: objectdetection,
   },
 ] as const;
 
