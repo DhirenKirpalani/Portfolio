@@ -10,9 +10,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://dhirenkirpalani.com'),
+  metadataBase: new URL('https://portfolio-dhirenkirpalani.vercel.app'),
   title: {
-    default: "Dhiren Kirpalani | Product Manager - Fintech & Payments",
+    default: "Dhiren Kirpalani | Portfolio",
     template: "%s | Dhiren Kirpalani"
   },
   description: "Product Manager specializing in fintech and payment systems. Building scalable products with cross-functional teams. Expert in product strategy, user experience, and technical implementation.",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     "TikTok Creator",
     "Product Education"
   ],
-  authors: [{ name: "Dhiren Kirpalani", url: "https://dhirenkirpalani.com" }],
+  authors: [{ name: "Dhiren Kirpalani", url: "https://portfolio-dhirenkirpalani.vercel.app" }],
   creator: "Dhiren Kirpalani",
   publisher: "Dhiren Kirpalani",
   formatDetection: {
@@ -41,13 +41,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://dhirenkirpalani.com",
+    url: "https://portfolio-dhirenkirpalani.vercel.app",
     siteName: "Dhiren Kirpalani Portfolio",
-    title: "Dhiren Kirpalani | Product Manager - Fintech & Payments",
+    title: "Dhiren Kirpalani | Portfolio",
     description: "Product Manager specializing in fintech and payment systems. Building scalable products with cross-functional teams.",
     images: [
       {
-        url: "/api/og",
+        url: "https://portfolio-dhirenkirpalani.vercel.app/api/og",
         width: 1200,
         height: 630,
         alt: "Dhiren Kirpalani - Product Manager",
@@ -56,10 +56,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dhiren Kirpalani | Product Manager - Fintech & Payments",
+    title: "Dhiren Kirpalani | Portfolio",
     description: "Product Manager specializing in fintech and payment systems. Building scalable products with cross-functional teams.",
     creator: "@dhirenkirpalani",
-    images: ["/api/og"],
+    images: ["https://portfolio-dhirenkirpalani.vercel.app/api/og"],
   },
   robots: {
     index: true,
