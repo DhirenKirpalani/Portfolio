@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     description: "Product Manager specializing in fintech and payment systems. Building scalable products with cross-functional teams.",
     images: [
       {
-        url: "/og-image.png",
+        url: "/api/og",
         width: 1200,
         height: 630,
         alt: "Dhiren Kirpalani - Product Manager",
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     title: "Dhiren Kirpalani | Product Manager - Fintech & Payments",
     description: "Product Manager specializing in fintech and payment systems. Building scalable products with cross-functional teams.",
     creator: "@dhirenkirpalani",
-    images: ["/og-image.png"],
+    images: ["/api/og"],
   },
   robots: {
     index: true,
