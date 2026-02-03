@@ -52,7 +52,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight"
+              className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold mb-6 sm:mb-8 leading-tight"
             >
               <span className={theme === 'dark' ? 'bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent' : 'text-gray-900'}>
                 Dhiren Kirpalani
@@ -63,7 +63,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="text-2xl md:text-4xl lg:text-5xl font-bold mb-10 leading-snug max-w-4xl"
+              className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold mb-8 sm:mb-10 leading-snug max-w-4xl"
             >
               <span className={theme === 'dark' ? 'text-white' : 'text-gray-700'}>Product Manager crafting </span>
               <motion.span 
@@ -81,7 +81,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className={`text-lg md:text-xl mb-14 max-w-2xl leading-relaxed ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}
+              className={`text-base sm:text-lg md:text-xl mb-10 sm:mb-14 max-w-2xl leading-relaxed ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}
             >
               Transforming complex payment challenges into <motion.span 
                 className={`font-semibold ${theme === 'dark' ? 'text-blue-400' : 'text-blue-600'}`}
@@ -96,13 +96,13 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              className="flex flex-wrap gap-4 mb-12"
+              className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 mb-10 sm:mb-12"
             >
               <motion.button
                 onClick={() => scrollToSection('experience')}
                 whileHover={{ scale: 1.05, boxShadow: "0 0 40px rgba(59, 130, 246, 0.6)" }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white rounded-lg font-semibold transition-all shadow-lg shadow-blue-500/50 flex items-center gap-2 group relative overflow-hidden"
+                className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white rounded-lg font-semibold transition-all shadow-lg shadow-blue-500/50 flex items-center justify-center gap-2 group relative overflow-hidden"
               >
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600"
@@ -118,7 +118,7 @@ export default function Hero() {
                 onClick={() => scrollToSection('contact')}
                 whileHover={{ scale: 1.05, borderColor: "rgb(59, 130, 246)" }}
                 whileTap={{ scale: 0.95 }}
-                className={`px-8 py-4 border-2 rounded-lg font-semibold transition-all backdrop-blur-sm relative overflow-hidden group ${
+                className={`w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 border-2 rounded-lg font-semibold transition-all backdrop-blur-sm relative overflow-hidden group ${
                   theme === 'dark' 
                     ? 'border-gray-700 text-white hover:border-blue-500' 
                     : 'border-gray-300 text-gray-900 hover:border-blue-500'
@@ -138,9 +138,10 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.7 }}
-              className="flex items-center gap-6"
+              className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6"
             >
               <span className={`text-sm font-medium ${theme === 'dark' ? 'text-gray-500' : 'text-gray-600'}`}>Connect with me:</span>
+              <div className="flex items-center gap-4">
               <motion.a
                 href="https://github.com"
                 target="_blank"
@@ -175,25 +176,11 @@ export default function Hero() {
               >
                 <Mail className="w-6 h-6" />
               </motion.a>
+              </div>
             </motion.div>
           </motion.div>
         </div>
       </div>
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1, duration: 1 }}
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
-      >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ repeat: Infinity, duration: 2 }}
-          className={`w-6 h-10 border-2 rounded-full flex items-start justify-center p-2 ${theme === 'dark' ? 'border-gray-600' : 'border-gray-400'}`}
-        >
-          <motion.div className={`w-1.5 h-1.5 rounded-full ${theme === 'dark' ? 'bg-gray-600' : 'bg-gray-400'}`} />
-        </motion.div>
-      </motion.div>
     </section>
   );
 }
