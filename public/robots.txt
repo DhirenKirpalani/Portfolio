@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://dhirenkirpalani.com
+
+# Sitemaps
+Sitemap: https://dhirenkirpalani.com/sitemap.xml
