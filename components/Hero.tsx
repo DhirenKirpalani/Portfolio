@@ -1,7 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, Github, Linkedin, Mail, Video } from 'lucide-react';
+import { ArrowRight, Github, Linkedin, Mail } from 'lucide-react';
+import { FaTiktok } from 'react-icons/fa';
 import { useTheme } from '@/contexts/ThemeContext';
 
 export default function Hero() {
@@ -64,10 +65,16 @@ export default function Hero() {
               transition={{ delay: 0.4 }}
               className="text-2xl md:text-4xl lg:text-5xl font-bold mb-10 leading-snug max-w-4xl"
             >
-              <span className={theme === 'dark' ? 'text-white' : 'text-gray-700'}>Product Manager building </span>
-              <span className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-                scalable fintech systems
-              </span>
+              <span className={theme === 'dark' ? 'text-white' : 'text-gray-700'}>Product Manager crafting </span>
+              <motion.span 
+                className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent"
+                animate={{ 
+                  backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+                }}
+                transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
+              >
+                innovative fintech solutions
+              </motion.span>
             </motion.h2>
 
             <motion.p
@@ -76,8 +83,13 @@ export default function Hero() {
               transition={{ delay: 0.5 }}
               className={`text-lg md:text-xl mb-14 max-w-2xl leading-relaxed ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}
             >
-              Transforming complex payment challenges into <span className={`font-semibold ${theme === 'dark' ? 'text-blue-400' : 'text-blue-600'}`}>elegant product solutions</span>. 
-              Bridging the gap between technical excellence and user-centric design.
+              Transforming complex payment challenges into <motion.span 
+                className={`font-semibold ${theme === 'dark' ? 'text-blue-400' : 'text-blue-600'}`}
+                whileHover={{ scale: 1.05 }}
+              >
+                elegant product solutions
+              </motion.span>. 
+              Bridging the gap between <span className="font-semibold bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">technical excellence</span> and <span className="font-semibold bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">user-centric design</span>.
             </motion.p>
 
             <motion.div
@@ -88,21 +100,37 @@ export default function Hero() {
             >
               <motion.button
                 onClick={() => scrollToSection('experience')}
-                whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(59, 130, 246, 0.5)" }}
+                whileHover={{ scale: 1.05, boxShadow: "0 0 40px rgba(59, 130, 246, 0.6)" }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg font-semibold hover:from-blue-600 hover:to-purple-600 transition-all shadow-lg shadow-blue-500/50 flex items-center gap-2 group"
+                className="px-8 py-4 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white rounded-lg font-semibold transition-all shadow-lg shadow-blue-500/50 flex items-center gap-2 group relative overflow-hidden"
               >
-                View My Work
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600"
+                  initial={{ x: '-100%' }}
+                  whileHover={{ x: 0 }}
+                  transition={{ duration: 0.3 }}
+                />
+                <span className="relative z-10">View My Work</span>
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform relative z-10" />
               </motion.button>
 
               <motion.button
                 onClick={() => scrollToSection('contact')}
                 whileHover={{ scale: 1.05, borderColor: "rgb(59, 130, 246)" }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 border-2 border-gray-700 text-white rounded-lg font-semibold hover:border-blue-500 hover:bg-blue-500/10 transition-all backdrop-blur-sm"
+                className={`px-8 py-4 border-2 rounded-lg font-semibold transition-all backdrop-blur-sm relative overflow-hidden group ${
+                  theme === 'dark' 
+                    ? 'border-gray-700 text-white hover:border-blue-500' 
+                    : 'border-gray-300 text-gray-900 hover:border-blue-500'
+                }`}
               >
-                Let's Connect
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10"
+                  initial={{ opacity: 0 }}
+                  whileHover={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                />
+                <span className="relative z-10">Let's Connect</span>
               </motion.button>
             </motion.div>
 
@@ -138,7 +166,7 @@ export default function Hero() {
                 whileHover={{ scale: 1.2, y: -3 }}
                 className={`transition-colors p-2 hover:bg-blue-500/10 rounded-lg ${theme === 'dark' ? 'text-gray-400 hover:text-blue-500' : 'text-gray-600 hover:text-blue-600'}`}
               >
-                <Video className="w-6 h-6" />
+                <FaTiktok className="w-6 h-6" />
               </motion.a>
               <motion.a
                 href="mailto:hello@example.com"

@@ -72,40 +72,21 @@ export default function Navbar() {
         <div className="flex items-center justify-between">
           <motion.button
             onClick={() => scrollToSection('hero')}
-            className={`text-xl font-bold transition-colors ${theme === 'dark' ? 'text-white hover:text-blue-500' : 'text-gray-900 hover:text-blue-600'}`}
+            className={`text-xl font-bold transition-colors cursor-pointer ${theme === 'dark' ? 'text-white hover:text-blue-500' : 'text-gray-900 hover:text-blue-600'}`}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             DK
           </motion.button>
 
-          <div className="hidden md:flex items-center gap-6">
-            <motion.button
-              onClick={toggleTheme}
-              whileHover={{ scale: 1.1, rotate: 180 }}
-              whileTap={{ scale: 0.9 }}
-              className={`p-2 rounded-lg border transition-colors ${
-                theme === 'dark'
-                  ? 'bg-white/5 hover:bg-white/10 border-white/10 hover:border-blue-500/50'
-                  : 'bg-gray-100 hover:bg-gray-200 border-gray-300 hover:border-blue-400'
-              }`}
-              aria-label="Toggle theme"
-            >
-              {theme === 'dark' ? (
-                <Sun className="w-5 h-5 text-yellow-400" />
-              ) : (
-                <Moon className="w-5 h-5 text-blue-500" />
-              )}
-            </motion.button>
-            
-            <div className={`w-px h-6 ${theme === 'dark' ? 'bg-white/10' : 'bg-gray-300'}`} />
+          <div className="hidden md:flex items-center gap-6 absolute left-1/2 transform -translate-x-1/2">
             {navItems.map((item) => {
               const Icon = item.icon;
               return (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`relative flex items-center gap-2 text-sm font-medium transition-colors ${
+                  className={`relative flex items-center gap-2 text-sm font-medium transition-colors cursor-pointer ${
                     activeSection === item.id 
                       ? 'text-blue-500' 
                       : theme === 'dark' 
@@ -126,6 +107,24 @@ export default function Navbar() {
               );
             })}
           </div>
+
+          <motion.button
+            onClick={toggleTheme}
+            whileHover={{ scale: 1.1, rotate: 180 }}
+            whileTap={{ scale: 0.9 }}
+            className={`hidden md:block p-2 rounded-lg border transition-colors cursor-pointer ${
+              theme === 'dark'
+                ? 'bg-white/5 hover:bg-white/10 border-white/10 hover:border-blue-500/50'
+                : 'bg-gray-100 hover:bg-gray-200 border-gray-300 hover:border-blue-400'
+            }`}
+            aria-label="Toggle theme"
+          >
+            {theme === 'dark' ? (
+              <Sun className="w-5 h-5 text-yellow-400" />
+            ) : (
+              <Moon className="w-5 h-5 text-blue-500" />
+            )}
+          </motion.button>
         </div>
       </div>
     </motion.nav>

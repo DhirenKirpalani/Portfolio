@@ -13,9 +13,53 @@ export default function Contact() {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [emailError, setEmailError] = useState('');
+  const [messageError, setMessageError] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const validateEmail = (value: string) => {
+    if (!value) {
+      setEmailError('Email is required');
+      return false;
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(value)) {
+      setEmailError('Please enter a valid email address');
+      return false;
+    }
+    setEmailError('');
+    return true;
+  };
+
+  const validateMessage = (value: string) => {
+    if (!value) {
+      setMessageError('Message is required');
+      return false;
+    }
+    if (value.trim().length < 10) {
+      setMessageError('Message must be at least 10 characters long');
+      return false;
+    }
+    if (value.length > 5000) {
+      setMessageError('Message must not exceed 5000 characters');
+      return false;
+    }
+    setMessageError('');
+    return true;
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setErrorMessage('');
+    
+    // Validate inputs
+    const isEmailValid = validateEmail(email);
+    const isMessageValid = validateMessage(message);
+    
+    if (!isEmailValid || !isMessageValid) {
+      return;
+    }
+    
     setStatus('loading');
 
     try {
@@ -29,14 +73,25 @@ export default function Contact() {
         setStatus('success');
         setEmail('');
         setMessage('');
+        setEmailError('');
+        setMessageError('');
         setTimeout(() => setStatus('idle'), 5000);
       } else {
+        const data = await response.json();
         setStatus('error');
-        setTimeout(() => setStatus('idle'), 5000);
+        setErrorMessage(data.error || 'Failed to send message. Please try again.');
+        setTimeout(() => {
+          setStatus('idle');
+          setErrorMessage('');
+        }, 5000);
       }
     } catch (error) {
       setStatus('error');
-      setTimeout(() => setStatus('idle'), 5000);
+      setErrorMessage('Network error. Please check your connection and try again.');
+      setTimeout(() => {
+        setStatus('idle');
+        setErrorMessage('');
+      }, 5000);
     }
   };
 
@@ -107,15 +162,32 @@ export default function Contact() {
                   type="email"
                   id="email"
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                    if (emailError) validateEmail(e.target.value);
+                  }}
+                  onBlur={(e) => validateEmail(e.target.value)}
                   required
-                  className={`w-full px-4 py-3 rounded-lg border transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                  className={`w-full px-4 py-3 rounded-lg border transition-colors focus:outline-none focus:ring-2 ${
+                    emailError
+                      ? 'border-red-500 focus:ring-red-500'
+                      : 'focus:ring-blue-500'
+                  } ${
                     theme === 'dark'
                       ? 'bg-white/5 border-white/10 text-white placeholder-gray-500'
                       : 'bg-white border-gray-300 text-gray-900 placeholder-gray-400'
                   }`}
                   placeholder="your.email@example.com"
                 />
+                {emailError && (
+                  <motion.p
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="mt-2 text-sm text-red-500 flex items-center gap-1"
+                  >
+                    <span>⚠️</span> {emailError}
+                  </motion.p>
+                )}
               </div>
 
               <div>
@@ -125,17 +197,73 @@ export default function Contact() {
                 <textarea
                   id="message"
                   value={message}
-                  onChange={(e) => setMessage(e.target.value)}
+                  onChange={(e) => {
+                    setMessage(e.target.value);
+                    if (messageError) validateMessage(e.target.value);
+                  }}
+                  onBlur={(e) => validateMessage(e.target.value)}
                   required
                   rows={5}
-                  className={`w-full px-4 py-3 rounded-lg border transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none ${
+                  className={`w-full px-4 py-3 rounded-lg border transition-colors focus:outline-none focus:ring-2 resize-none ${
+                    messageError
+                      ? 'border-red-500 focus:ring-red-500'
+                      : 'focus:ring-blue-500'
+                  } ${
                     theme === 'dark'
                       ? 'bg-white/5 border-white/10 text-white placeholder-gray-500'
                       : 'bg-white border-gray-300 text-gray-900 placeholder-gray-400'
                   }`}
-                  placeholder="Your message here..."
+                  placeholder="Your message here... (minimum 10 characters)"
                 />
+                <div className="flex justify-between items-start mt-2">
+                  {messageError ? (
+                    <motion.p
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="text-sm text-red-500 flex items-center gap-1"
+                    >
+                      <span>⚠️</span> {messageError}
+                    </motion.p>
+                  ) : (
+                    <div />
+                  )}
+                  <p className={`text-xs ${message.length > 5000 ? 'text-red-500' : theme === 'dark' ? 'text-gray-500' : 'text-gray-400'}`}>
+                    {message.length}/5000
+                  </p>
+                </div>
               </div>
+
+              {errorMessage && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className={`p-4 rounded-lg border ${
+                    theme === 'dark'
+                      ? 'bg-red-500/10 border-red-500/50 text-red-400'
+                      : 'bg-red-50 border-red-200 text-red-600'
+                  }`}
+                >
+                  <p className="text-sm font-medium flex items-center gap-2">
+                    <span>❌</span> {errorMessage}
+                  </p>
+                </motion.div>
+              )}
+
+              {status === 'success' && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className={`p-4 rounded-lg border ${
+                    theme === 'dark'
+                      ? 'bg-green-500/10 border-green-500/50 text-green-400'
+                      : 'bg-green-50 border-green-200 text-green-600'
+                  }`}
+                >
+                  <p className="text-sm font-medium flex items-center gap-2">
+                    <span>✅</span> Message sent successfully! I'll get back to you soon.
+                  </p>
+                </motion.div>
+              )}
 
               <motion.button
                 type="submit"
@@ -149,14 +277,10 @@ export default function Contact() {
                     <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
                     Sending...
                   </>
-                ) : status === 'success' ? (
-                  '✓ Message Sent!'
-                ) : status === 'error' ? (
-                  '✗ Failed to send'
                 ) : (
                   <>
                     <Send className="w-5 h-5" />
-                    Submit
+                    Send Message
                   </>
                 )}
               </motion.button>
