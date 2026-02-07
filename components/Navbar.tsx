@@ -54,7 +54,7 @@ export default function Navbar() {
 
 
   const navItems = [
-    { id: 'hero', label: 'Home', icon: Home },
+    { id: 'hero', label: 'Homesssss', icon: Home },
     { id: 'about', label: 'About', icon: User },
     { id: 'experience', label: 'Experience', icon: Briefcase },
     { id: 'skills', label: 'Skills', icon: Code },
