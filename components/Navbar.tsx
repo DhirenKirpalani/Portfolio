@@ -35,19 +35,23 @@ export default function Navbar() {
   }, []);
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const offset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
+  const element = document.getElementById(sectionId);
+  if (!element) return;
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-      setIsMobileMenuOpen(false);
-    }
-  };
+  setIsMobileMenuOpen(false);
+
+  requestAnimationFrame(() => {
+    const offset = 80;
+    const elementPosition = element.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth',
+    });
+  });
+};
+
 
   const navItems = [
     { id: 'hero', label: 'Home', icon: Home },
@@ -168,10 +172,15 @@ export default function Navbar() {
                 return (
                   <motion.button
                     key={item.id}
+                    type="button"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.05 }}
                     onClick={() => scrollToSection(item.id)}
+                    onTouchEnd={(e) => {
+                      e.preventDefault();
+                      scrollToSection(item.id);
+                    }}
                     className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors cursor-pointer ${
                       activeSection === item.id
                         ? 'bg-blue-500/10 text-blue-500'
