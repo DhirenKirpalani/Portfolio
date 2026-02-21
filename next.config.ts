@@ -16,7 +16,8 @@ const nextConfig: NextConfig = {
           },
           {
             key: "Content-Security-Policy",
-            value: "frame-ancestors 'self' https://www.linkedin.com;",
+            value:
+              "frame-ancestors 'self' https://*.linkedin.com https://linkedin.com;",
           },
           {
             key: 'X-Content-Type-Options',
