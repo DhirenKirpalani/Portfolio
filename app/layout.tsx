@@ -39,21 +39,24 @@ export const metadata: Metadata = {
     telephone: false,
   },
   openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: "https://portfolio-dhirenkirpalani.vercel.app",
-    siteName: "Dhiren Kirpalani Portfolio",
-    title: "Dhiren Kirpalani | Portfolio",
-    description: "Product Manager and Full-Stack Developer. Transforming ideas into scalable digital products.",
-    images: [
-      {
-        url: "https://portfolio-dhirenkirpalani.vercel.app/preview.png",
-        width: 1200,
-        height: 630,
-        alt: "Dhiren Kirpalani - Product Manager and Full-Stack Developer",
-      },
-    ],
-  },
+  type: "website",
+  locale: "en_US",
+  url: "/",
+  siteName: "Dhiren Kirpalani Portfolio",
+  title: "Dhiren Kirpalani | Portfolio",
+  description:
+    "Product Manager and Full-Stack Developer. Transforming ideas into scalable digital products.",
+  images: [
+    {
+      url: "/preview.jpg",
+      secureUrl: "https://portfolio-dhirenkirpalani.vercel.app/preview.jpg",
+      width: 1200,
+      height: 630,
+      alt: "Dhiren Kirpalani - Product Manager and Full-Stack Developer",
+      type: "image/jpeg",
+    },
+  ],
+},
   twitter: {
     card: "summary_large_image",
     title: "Dhiren Kirpalani | Portfolio",
