@@ -65,7 +65,7 @@ export default function Hero() {
               transition={{ delay: 0.4 }}
               className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold mb-8 sm:mb-10 leading-snug max-w-4xl"
             >
-              <span className={theme === 'dark' ? 'text-white' : 'text-gray-700'}>Product Manager crafting </span>
+              <span className={theme === 'dark' ? 'text-white' : 'text-gray-700'}>Product Manager and </span>
               <motion.span 
                 className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent"
                 animate={{ 
@@ -73,7 +73,7 @@ export default function Hero() {
                 }}
                 transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
               >
-                innovative fintech solutions
+                Full-Stack Developer
               </motion.span>
             </motion.h2>
 
@@ -83,13 +83,15 @@ export default function Hero() {
               transition={{ delay: 0.5 }}
               className={`text-base sm:text-lg md:text-xl mb-10 sm:mb-14 max-w-2xl leading-relaxed ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}
             >
-              Transforming complex payment challenges into <motion.span 
+              <motion.span 
                 className={`font-semibold ${theme === 'dark' ? 'text-blue-400' : 'text-blue-600'}`}
                 whileHover={{ scale: 1.05 }}
               >
-                elegant product solutions
-              </motion.span>. 
-              Bridging the gap between <span className="font-semibold bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">technical excellence</span> and <span className="font-semibold bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">user-centric design</span>.
+                Transforming ideas into scalable digital products.
+              </motion.span>{' '}
+              Bridging <span className="font-semibold bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">product strategy</span>, <span className="font-semibold bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">system architecture</span>, and <span className="font-semibold bg-gradient-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent">user-centric design</span>.
+              <br />
+              From concept to production deployment.
             </motion.p>
 
             <motion.div
