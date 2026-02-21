@@ -27,6 +27,10 @@ export default function Skills() {
       category: 'Tools & Platforms',
       skills: ['Jira', 'Figma', 'Mixpanel', 'Amplitude', 'Postman', 'GitHub'],
     },
+    {
+      category: 'Full-Stack Development',
+      skills: ['JavaScript', 'TypeScript', 'React', 'Next.js', 'React Native', 'Redux', 'Tailwind CSS', 'Framer Motion', 'Vite', 'Node.js', 'Express.js', 'GraphQL', 'Apollo', 'REST APIs', 'Socket.io', 'MongoDB', 'PostgreSQL', 'MySQL', 'Sequelize', 'AWS', 'Git', 'Jest', 'TensorFlow.js'],
+    },
   ];
 
   return (
